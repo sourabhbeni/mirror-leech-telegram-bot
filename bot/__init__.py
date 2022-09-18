@@ -252,24 +252,24 @@ VIEW_LINK = VIEW_LINK.lower() == 'true'
 IS_TEAM_DRIVE = environ.get('IS_TEAM_DRIVE', '')
 IS_TEAM_DRIVE = IS_TEAM_DRIVE.lower() == 'true'
 
-    BUTTON_FOUR_NAME = getConfig('BUTTON_FOUR_NAME')
-    BUTTON_FOUR_URL = getConfig('BUTTON_FOUR_URL')
+    BUTTON_FOUR_NAME = environ.get('BUTTON_FOUR_NAME')
+    BUTTON_FOUR_URL = environ.get('BUTTON_FOUR_URL')
     if len(BUTTON_FOUR_NAME) == 0 or len(BUTTON_FOUR_URL) == 0:
         raise KeyError
 except KeyError:
     BUTTON_FOUR_NAME = None
     BUTTON_FOUR_URL = None
 
-    BUTTON_FIVE_NAME = getConfig('BUTTON_FIVE_NAME')
-    BUTTON_FIVE_URL = getConfig('BUTTON_FIVE_URL')
+    BUTTON_FIVE_NAME = environ.get('BUTTON_FIVE_NAME')
+    BUTTON_FIVE_URL = environ.get('BUTTON_FIVE_URL')
     if len(BUTTON_FIVE_NAME) == 0 or len(BUTTON_FIVE_URL) == 0:
         raise KeyError
 except KeyError:
     BUTTON_FIVE_NAME = None
     BUTTON_FIVE_URL = None
 
-    BUTTON_SIX_NAME = getConfig('BUTTON_SIX_NAME')
-    BUTTON_SIX_URL = getConfig('BUTTON_SIX_URL')
+    BUTTON_SIX_NAME = environ.get('BUTTON_SIX_NAME')
+    BUTTON_SIX_URL = environ.get('BUTTON_SIX_URL')
     if len(BUTTON_SIX_NAME) == 0 or len(BUTTON_SIX_URL) == 0:
         raise KeyError
 except KeyError:
