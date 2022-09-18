@@ -234,6 +234,10 @@ CUSTOM_FILENAME = environ.get('CUSTOM_FILENAME', '')
 if len(CUSTOM_FILENAME) == 0:
     CUSTOM_FILENAME = None
 
+CRYPT = environ.get('CRYPT', '')
+if len(CRYPT) == 0:
+    CRYPT = None
+
 SEARCH_PLUGINS = environ.get('SEARCH_PLUGINS', '')
 if len(SEARCH_PLUGINS) == 0:
     SEARCH_PLUGINS = None
