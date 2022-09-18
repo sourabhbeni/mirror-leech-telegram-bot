@@ -21,16 +21,16 @@ PAGES = 0
 
 
 class MirrorStatus:
-    STATUS_UPLOADING = "Upload"
-    STATUS_DOWNLOADING = "Download"
-    STATUS_CLONING = "Clone"
-    STATUS_WAITING = "Queue"
-    STATUS_PAUSED = "Pause"
-    STATUS_ARCHIVING = "Archive"
-    STATUS_EXTRACTING = "Extract"
-    STATUS_SPLITTING = "Split"
-    STATUS_CHECKING = "CheckUp"
-    STATUS_SEEDING = "Seed"
+    STATUS_UPLOADING = "Uploading...📤"
+    STATUS_DOWNLOADING = "Downloading...📥"
+    STATUS_CLONING = "Cloning...♻️"
+    STATUS_WAITING = "Queued...💤"
+    STATUS_PAUSE = "Paused...⛔️"
+    STATUS_ARCHIVING = "Archiving...🔐"
+    STATUS_EXTRACTING = "Extracting...📂"
+    STATUS_SPLITTING = "Splitting...✂️"
+    STATUS_CHECKING = "CheckingUp...📝"
+    STATUS_SEEDING = "Seeding...🌧"
 
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
@@ -227,6 +227,10 @@ def is_url(url: str):
 
 def is_gdrive_link(url: str):
     return "drive.google.com" in url
+
+def is_gdtot_link(url: str):
+    url = re_match(r'https?://.+\.gdtot\.\S+', url)
+    return bool(url)
 
 def is_mega_link(url: str):
     return "mega.nz" in url or "mega.co.nz" in url
