@@ -15,7 +15,8 @@ from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
 from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type, RetryError
 
 from bot.helper.telegram_helper.button_build import ButtonMaker
-from bot import parent_id, IS_TEAM_DRIVE, INDEX_URL, USE_SERVICE_ACCOUNTS, VIEW_LINK, \
+from bot import parent_id, IS_TEAM_DRIVE, INDEX_URL, USE_SERVICE_ACCOUNTS, VIEW_LINK, BUTTON_FOUR_NAME, \
+                BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, BUTTON_SIX_NAME, BUTTON_SIX_URL, \
                 DRIVES_NAMES, DRIVES_IDS, INDEX_URLS, EXTENSION_FILTER
 from bot.helper.ext_utils.bot_utils import get_readable_file_size, setInterval
 from bot.helper.ext_utils.fs_utils import get_mime_type
@@ -380,6 +381,7 @@ class GoogleDriveHelper:
                     url_path = rquote(f'{meta.get("name")}', safe='')
                     url = f'{INDEX_URL}/{url_path}/'
                     buttons.buildbutton("⚡ Index Link", url)
+                    buttons.buildbutton("🥸 Join here 🥸", "https://t.me/+oX7oIf0ld7g3NTEx")
             else:
                 file = self.__copyFile(meta.get('id'), parent_id)
                 msg += f'<b>Name: </b><code>{file.get("name")}</code>'
@@ -397,6 +399,12 @@ class GoogleDriveHelper:
                     if VIEW_LINK:
                         urlv = f'{INDEX_URL}/{url_path}?a=view'
                         buttons.buildbutton("🌐 View Link", urlv)
+             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
+                buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
+            if BUTTON_FIVE_NAME is not None and BUTTON_FIVE_URL is not None:
+                buttons.buildbutton(f"{BUTTON_FIVE_NAME}", f"{BUTTON_FIVE_URL}")
+            if BUTTON_SIX_NAME is not None and BUTTON_SIX_URL is not None:
+                buttons.buildbutton(f"{BUTTON_SIX_NAME}", f"{BUTTON_SIX_URL}")
         except Exception as err:
             if isinstance(err, RetryError):
                 LOGGER.info(f"Total Attempts: {err.last_attempt.attempt_number}")
