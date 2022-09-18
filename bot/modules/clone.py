@@ -35,8 +35,8 @@ def _clone(message, bot):
             tag = f"@{reply_to.from_user.username}"
         else:
             tag = reply_to.from_user.mention_html(reply_to.from_user.first_name)
-      is_gdtot = is_gdtot_link(link)
-    if is_gdtot:
+    #  is_gdtot = is_gdtot_link(link)
+    if is_gdtot_link(link):
         try:
             msg = sendMessage(f"Processing: <code>{link}</code>", context.bot, update.message)
             link = gdtot(link)
