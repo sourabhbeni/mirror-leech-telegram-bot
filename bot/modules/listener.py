@@ -5,7 +5,8 @@ from os import path as ospath, remove as osremove, listdir, walk
 from subprocess import Popen
 from html import escape
 
-from bot import Interval, INDEX_URL, VIEW_LINK, aria2, DOWNLOAD_DIR, download_dict, download_dict_lock, \
+from bot import Interval, INDEX_URL, VIEW_LINK, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, \
+                BUTTON_SIX_NAME, BUTTON_SIX_URL, aria2, DOWNLOAD_DIR, download_dict, download_dict_lock, \
                 LEECH_SPLIT_SIZE, LOGGER, DB_URI, INCOMPLETE_TASK_NOTIFIER, MAX_SPLIT_SIZE
 from bot.helper.ext_utils.fs_utils import get_base_name, get_path_size, split_file, clean_download, clean_target
 from bot.helper.ext_utils.exceptions import NotSupportedExtractionArchive
@@ -254,9 +255,13 @@ class MirrorLeechListener:
                     buttons.buildbutton("⚡ Index Link", share_url)
                 else:
                     buttons.buildbutton("⚡ Index Link", share_url)
+                    buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
+                    buttons.buildbutton(f"{BUTTON_FIVE_NAME}", f"{BUTTON_FIVE_URL}")
                     if VIEW_LINK:
                         share_urls = f'{INDEX_URL}/{url_path}?a=view'
                         buttons.buildbutton("🌐 View Link", share_urls)
+                        buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
+                        buttons.buildbutton(f"{BUTTON_FIVE_NAME}", f"{BUTTON_FIVE_URL}")
             sendMarkup(msg, self.bot, self.message, buttons.build_menu(2))
             if self.seed:
                 if self.isZip:
