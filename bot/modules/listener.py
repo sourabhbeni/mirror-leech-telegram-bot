@@ -253,6 +253,8 @@ class MirrorLeechListener:
                 if typ == "Folder":
                     share_url += '/'
                     buttons.buildbutton("⚡ Index Link", share_url)
+                    buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
+                    buttons.buildbutton(f"{BUTTON_FIVE_NAME}", f"{BUTTON_FIVE_URL}")
                 else:
                     buttons.buildbutton("⚡ Index Link", share_url)
                     buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
